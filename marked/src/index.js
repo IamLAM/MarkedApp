@@ -10,3 +10,18 @@ import './index.css';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 //serviceWorker.unregister();
+
+
+class PreviewComponent extends React.Component{
+
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+
+        return(<h1>previewing data</h1>);
+    }
+}
+
+ReactDOM.render(<PreviewComponent/>,document.getElementById('preview'));
