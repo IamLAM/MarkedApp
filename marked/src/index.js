@@ -10,12 +10,30 @@ import './index.css';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 //serviceWorker.unregister();
-
-
+marked.setOptions({
+    breaks: true,
+  });
+const data=`
+#Marked Library\n
+##Learning preview data\n
+###You can find more info in Marked.js web page
+[Marked.js](https://marked.js.org)\n
+#Technologies\n
+-React
+-Marked
+-HTML
+-CSS
+\n 
+#Bold word
+**marked**
+`
 class PreviewComponent extends React.Component{
 
     constructor(props){
         super(props);
+        this.state={
+            markedPreview:data
+        }
     }
 
     render(){
