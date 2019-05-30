@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 //import App from './App';
 //import * as serviceWorker from './serviceWorker';
@@ -10,15 +11,16 @@ import './index.css';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 //serviceWorker.unregister();
-marked.setOptions({
-    breaks: true,
-  });
+/*
+*/
+///let mark=require("marked");
+const ReactMarkdown = require('react-markdown');
 const data=`
-#Marked Library\n
-##Learning preview data\n
-###You can find more info in Marked.js web page
+# Marked Library\n
+## Learning preview data\n
+### You can find more info in Marked.js web page
 [Marked.js](https://marked.js.org)\n
-#Technologies\n
+# Technologies\n
 -React
 -Marked
 -HTML
@@ -42,4 +44,5 @@ class PreviewComponent extends React.Component{
     }
 }
 
-ReactDOM.render(<PreviewComponent/>,document.getElementById('preview'));
+//ReactDOM.render(<PreviewComponent/>,document.getElementById('preview'));
+ReactDOM.render(<ReactMarkdown source={data}/>,document.getElementById('preview'))
