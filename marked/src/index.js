@@ -38,6 +38,14 @@ class PreviewComponent extends React.Component{
         }
     }
 
+  verifyChanges(e) {
+    this.setState({
+      markedPreview: e.target.value
+    });
+  }
+
+
+
     render(){
 
         return(<h1>previewing data</h1>);
