@@ -29,6 +29,21 @@ const data=`
 #Bold word
 **marked**
 `
+
+class Preview extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+      <h2>Preview</h2>
+      <div id = "preview" dangerouslySetInnerHTML={{__html:ReactMarkdown(this.props.input)}}></div>
+      </div>
+    );
+  }
+}
 class PreviewComponent extends React.Component{
 
     constructor(props){
@@ -52,7 +67,9 @@ class PreviewComponent extends React.Component{
 
             <div id="container">
               <textarea id="editor" name="text-editor" onChange={this.verifyChanges} value={this.state.value} cols="30" rows="10"></textarea>
-              <div id="preview"> </div>
+              <div id="preview"> 
+              <Preview/>
+              </div>
             </div>
         
            
