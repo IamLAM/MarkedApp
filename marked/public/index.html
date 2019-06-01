@@ -22,6 +22,7 @@
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
+
     <title>React App</title>
 </head>
 
@@ -41,7 +42,45 @@
     <h1><i class="fas fa-eye"></i>Preview App: Marked.js</h1>
     <hr>
     <div id="container">
- 
+    <textarea id="editor" name="text-editor" id="" cols="30" rows="10" onChange="review()" onkeyup="review()" >
+# Marked Library
+## Learning preview data
+
+[Marked.js](https://marked.js.org)
+[GitHub](https://github.com/IamLAM/)
+
+### inline code
+`console.log("React and Marked.js")`
+### Code Blocks
+```
+ #editor {
+    border-radius: 20px;
+    background-color: #832232;
+    color: white;
+    padding: 20px;
+    width: 500px;
+    margin: 0 auto;
+    border:none;
+}     
+```
+
+## Technologies 
+-React
+-Marked
+-HTML
+-CSS
+## Bold word
+**marked**
+> A big phrase or quote  
+
+* Learning learning
+* Learning learning
+![Developer](https://www.hawksearch.com/wp-content/uploads/Developer.png)  
+    </textarea>
+
+        <div id="preview">
+        </div>
+
       
     </div>
 </body>
