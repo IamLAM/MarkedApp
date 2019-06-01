@@ -20,7 +20,7 @@ class PreviewComponent extends React.Component{
 
 
 function review(){
-ReactDOM.render(<PreviewComponent/>,document.getElementById('preview'));
+ReactDOM.render(<PreviewComponent/>,document.getElementById('showChanges'));
 //ReactDOM.render(<ReactMarkdown source={data}/>,document.getElementById('preview'))
 
 }
