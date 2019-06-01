@@ -39,7 +39,7 @@ class Preview extends React.Component {
     return (
       <div>
       <h2>Preview</h2>
-      <div id = "preview" dangerouslySetInnerHTML={{__html:ReactMarkdown(this.props.input)}}></div>
+      <div id = "preview" dangerouslySetInnerHTML={{__html:ReactMarkdown(this.props.markedPreview)}}></div>
       </div>
     );
   }
@@ -51,12 +51,14 @@ class PreviewComponent extends React.Component{
         this.state={
             markedPreview:data
         }
+        this.verifyChanges = this.verifyChanges.bind(this);
     }
 
   verifyChanges(e) {
     this.setState({
       markedPreview: e.target.value
     });
+    console.log(this.state.markedPreview);
   }
 
 
@@ -66,10 +68,10 @@ class PreviewComponent extends React.Component{
         return(
 
             <div id="container">
-              <textarea id="editor" name="text-editor" onChange={this.verifyChanges} value={this.state.value} cols="30" rows="10"></textarea>
-              <div id="preview"> 
-              <Preview/>
-              </div>
+              <textarea id="editor" name="text-editor" onChange={this.verifyChanges} value={this.state.markedPreview} cols="30" rows="10"></textarea>
+               
+              <Preview markedPreview={this.state.markedPreview}/>
+           
             </div>
         
            
@@ -78,5 +80,5 @@ class PreviewComponent extends React.Component{
     }
 }
 
-//ReactDOM.render(<PreviewComponent/>,document.getElementById('preview'));
-ReactDOM.render(<ReactMarkdown source={data}/>,document.getElementById('preview'))
+ReactDOM.render(<PreviewComponent/>,document.getElementById('root'));
+//ReactDOM.render(<ReactMarkdown source={data}/>,document.getElementById('preview'))
