@@ -48,7 +48,16 @@ class PreviewComponent extends React.Component{
 
     render(){
 
-        return(<h1>previewing data</h1>);
+        return(
+
+            <div id="container">
+              <textarea id="editor" name="text-editor" onChange={this.verifyChanges} value={this.state.value} cols="30" rows="10"></textarea>
+              <div id="preview"> </div>
+            </div>
+        
+           
+        
+        );
     }
 }
 
