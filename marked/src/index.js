@@ -30,20 +30,6 @@ const data=`
 **marked**
 `
 
-class Preview extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-      <h2>Preview</h2>
-      <div id = "preview" dangerouslySetInnerHTML={{__html:ReactMarkdown(this.props.markedPreview)}}></div>
-      </div>
-    );
-  }
-}
 class PreviewComponent extends React.Component{
 
     constructor(props){
@@ -59,6 +45,14 @@ class PreviewComponent extends React.Component{
       markedPreview: e.target.value
     });
     console.log(this.state.markedPreview);
+    return this.state.markedPreview;
+  }
+
+  convertToMark(){
+        var dataMarked=ReactMarkdown(this.state.markedPreview);
+        console.log(dataMarked);
+        return {__html:dataMarked};
+
   }
 
 
@@ -68,10 +62,10 @@ class PreviewComponent extends React.Component{
         return(
 
             <div id="container">
-              <textarea id="editor" name="text-editor" onChange={this.verifyChanges} value={this.state.markedPreview} cols="30" rows="10"></textarea>
+              <textarea id="editor" name="text-editor" onChange={this.verifyChanges} defaultValue={this.state.markedPreview} cols="30" rows="10"></textarea>
                
-              <Preview markedPreview={this.state.markedPreview}/>
-           
+          
+            <div id="preview" dangerouslySetInnerHTML={this.convertToMark()}></div>
             </div>
         
            
@@ -80,5 +74,5 @@ class PreviewComponent extends React.Component{
     }
 }
 
-ReactDOM.render(<PreviewComponent/>,document.getElementById('root'));
+ReactDOM.render(<PreviewComponent/>,document.getElementById('container'));
 //ReactDOM.render(<ReactMarkdown source={data}/>,document.getElementById('preview'))
